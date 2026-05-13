@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰國觀光：深度介紹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --accent: #ffd700;
+            --bg-light: #fdfdfd;
+            --text-dark: #2c3e50;
+            --bg-accent: rgba(15, 76, 129, 0.04);
+            --thai-pattern: url('https://t4.ftcdn.net/jpg/04/73/47/65/360_F_473476520_jfL74mcJmayUhrwfgYxZ0j27BDaqr646.jpg');
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), var(--thai-pattern);
+            background-size: 600px;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 2.5rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .desc-row {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .desc-row:hover { transform: translateY(-5px); }
+
+        .desc-box {
+            flex: 1;
+            padding: 40px;
+            border-left: 10px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .desc-box h3 { color: var(--primary); margin-top: 0; font-size: 1.8rem; }
+        .desc-box p { line-height: 1.8; font-size: 1.1rem; color: #444; }
+
+        .img-link {
+            flex: 1;
+            display: block;
+            min-height: 350px;
+            overflow: hidden;
+        }
+
+        .pic-view {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .img-link:hover .pic-view { transform: scale(1.05); }
+
+        footer { padding: 60px 0; background: var(--primary); color: white; text-align: center; }
+
+        @media (max-width: 768px) {
+            .desc-row { flex-direction: column-reverse; }
+            .img-link { min-height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Amazing Thailand: 附加資訊</h1>
+        <p>點擊圖片可返回主頁面</p>
+    </div>
+    <div class="container">
+        
+    <div class="desc-row" id="songkran">
+        <div class="desc-box">
+            <h3>潑水節 (Songkran)</h3>
+            <p>宋干節（Songkran）是泰國的新年。這個節日最著名的活動就是全城的水仗，象徵著洗去過去一年的不幸，迎接清爽的新開始。除了戲水，這也是家庭團聚、前往寺廟祈福及向長輩行禮的重要時刻。</p>
+        </div>
+        <a href="page2.html#songkran" class="img-link">
+            <div class="pic-view" style="background-image: url('https://sawasdee.thaiairways.com/wp-content/uploads/2025/04/04TH7-1-1400x775.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="yipeng">
+        <div class="desc-box">
+            <h3>萬人天燈 (Yi Peng)</h3>
+            <p>清邁的天燈節（Yi Peng）是泰北地區最迷人的慶典之一。在夜空中釋放成千上萬的孔明燈，點點星火緩緩升起，場面宏大而祥和，象徵著祈求好運並將霉運放逐到遙遠的天際。</p>
+        </div>
+        <a href="page2.html#yipeng" class="img-link">
+            <div class="pic-view" style="background-image: url('https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2025/11/10/1762761108872_le-hoi-den-troi-yi-peng-chiang-mai-1.png');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="loykrathong">
+        <div class="desc-box">
+            <h3>水燈節 (Loy Krathong)</h3>
+            <p>水燈節通常與天燈節相近，民眾會將手工製作的精緻水燈（Krathong）放入河流或湖泊中。這表達了對水之女神的感激，同時也象徵著放逐個人的負面情緒與煩惱。</p>
+        </div>
+        <a href="page2.html#loykrathong" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.dhammathai.org/culture/pic/kratongsai_tak.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="phitakhon">
+        <div class="desc-box">
+            <h3>鬼臉節 (Phi Ta Khon)</h3>
+            <p>泰國東北部雷府（Loei）的傳統節日。參與者戴上色彩繽紛、表情誇張的大型面具在街道上遊行舞蹈。這個節慶融合了宗教與民間信仰，旨在祈求風調雨順、農作物豐收。</p>
+        </div>
+        <a href="page2.html#phitakhon" class="img-link">
+            <div class="pic-view" style="background-image: url('https://img.natgeomedia.com/userfiles/sm/sm1920_images_A1/3359/105105694925.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="BG">
+        <div class="desc-box">
+            <h3>模犯生 (Bad Genius)</h3>
+            <p>這是一部紅遍全球的泰國懸疑驚悚片。影片將考場作弊的過程拍得如同諜報動作片般扣人心弦，同時深刻探討了教育體制中的不平等與青少年的道德困境。</p>
+        </div>
+        <a href="page2.html#BG" class="img-link">
+            <div class="pic-view" style="background-image: url('https://pimg.1px.tw/pink03049/1501599629-933097405.jpg?v=1501622061');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="SL">
+        <div class="desc-box">
+            <h3>初戀那件小事</h3>
+            <p>這部電影是無數人心中的純愛經典。它真實細膩地描繪了校園暗戀的酸甜，以及女孩為了心上人努力讓自己變得更優秀的勵志過程，感動了無數亞洲觀眾。</p>
+        </div>
+        <a href="page2.html#SL" class="img-link">
+            <div class="pic-view" style="background-image: url('https://apl-hamivideo.cdn.hinet.net/HamiVideo/getHamiVideoImg.php?imageId=sourceImages@2024100234_o_20220713110951.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="ST">
+        <div class="desc-box">
+            <h3>鬼影 (Shutter)</h3>
+            <p>泰國恐怖片的巔峰之作。故事圍繞著神秘的照片靈異現象展開，其毛骨悚然的氣氛營造與驚人的結局翻轉，使其成為世界級的經典驚悚電影。</p>
+        </div>
+        <a href="page2.html#ST" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20210208011.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="PM">
+        <div class="desc-box">
+            <h3>淒厲人妻 (Pee Mak)</h3>
+            <p>泰國影史票房冠軍。它將傳統的「幽魂娜娜」鬼故事與現代喜劇元素完美結合。雖然笑料不斷，但核心描述的一段跨越生死的至死不渝之愛，讓無數觀眾熱淚盈眶。</p>
+        </div>
+        <a href="page2.html#PM" class="img-link">
+            <div class="pic-view" style="background-image: url('https://char.tw/wp-content/uploads/2017/08/1503031340-890152a6a2a17c1a95ea434153fa2a79.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="C">
+        <div class="desc-box">
+            <h3>涼季 (11月 - 2月)</h3>
+            <p>泰國最理想的旅遊季節。此時天氣乾爽、溫度適中，適合前往曼谷參觀大皇宮或到南方海島享受日光浴。這段時間也是泰國各大慶典集中的時期。</p>
+        </div>
+        <a href="page2.html#C" class="img-link">
+            <div class="pic-view" style="background-image: url('https://sci.pcru.ac.th/conference/resources/assets-frontend/img/carousel-1.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="H">
+        <div class="desc-box">
+            <h3>熱季 (3月 - 5月)</h3>
+            <p>陽光最強烈的季節，海水清晰度極高，是浮潛與深潛的最佳時機。著名的斯米蘭群島在此時也是對外開放的黃金期。</p>
+        </div>
+        <a href="page2.html#H" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.drivehub.com/blog/wp-content/uploads/2026/04/20-TB-1024x576.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="R">
+        <div class="desc-box">
+            <h3>雨季 (6月 - 10月)</h3>
+            <p>雖然降雨增加，但泰國的森林景觀在雨季呈現最極致的翠綠。此時飯店房價最具競爭力，且瀑布與國家公園的自然景觀最為壯麗。</p>
+        </div>
+        <a href="page2.html#R" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.drivehub.com/blog/wp-content/uploads/2023/07/07-Hin-Sam-Whales-1024x576.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="N">
+        <div class="desc-box">
+            <h3>泰北涼秋</h3>
+            <p>清邁與清萊等北部山區在涼季清晨會有迷人的雲海景觀。溫度較低，充滿詩意，吸引許多愛好大自然的攝影師與露營愛好者。</p>
+        </div>
+        <a href="page2.html#N" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.drivehub.com/blog/wp-content/uploads/2022/09/Blog-image-02.jpg');"></div>
+        </a>
+    </div>
+    
+    </div>
+    <footer>
+        <p>© 2026 Amazing Thailand Insight. | 永續旅遊，從你我開始。</p>
+    </footer>
+</body>
+</html>

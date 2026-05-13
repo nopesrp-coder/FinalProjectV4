@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰國觀光：深度介紹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --accent: #ffd700;
+            --bg-light: #fdfdfd;
+            --text-dark: #2c3e50;
+            --bg-accent: rgba(15, 76, 129, 0.04);
+            --thai-pattern: url('https://t4.ftcdn.net/jpg/04/73/47/65/360_F_473476520_jfL74mcJmayUhrwfgYxZ0j27BDaqr646.jpg');
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), var(--thai-pattern);
+            background-size: 600px;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 2.5rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .desc-row {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .desc-row:hover { transform: translateY(-5px); }
+
+        .desc-box {
+            flex: 1;
+            padding: 40px;
+            border-left: 10px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .desc-box h3 { color: var(--primary); margin-top: 0; font-size: 1.8rem; }
+        .desc-box p { line-height: 1.8; font-size: 1.1rem; color: #444; }
+
+        .img-link {
+            flex: 1;
+            display: block;
+            min-height: 350px;
+            overflow: hidden;
+        }
+
+        .pic-view {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .img-link:hover .pic-view { transform: scale(1.05); }
+
+        footer { padding: 60px 0; background: var(--primary); color: white; text-align: center; }
+
+        @media (max-width: 768px) {
+            .desc-row { flex-direction: column-reverse; }
+            .img-link { min-height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Amazing Thailand: 附加資訊</h1>
+        <p>點擊圖片可返回主頁面</p>
+    </div>
+    <div class="container">
+        
+    <div class="desc-row" id="wat-phra-kaew">
+        <div class="desc-box">
+            <h3>曼谷玉佛寺 (Wat Phra Kaew)</h3>
+            <p>位於大皇宮建築群內，玉佛寺是泰國最重要的宗教場所。這裡供奉著由單塊碧玉雕琢而成的佛像，是國家的守護象徵。 寺內的壁畫描繪了壯麗的《拉瑪堅》史詩，金碧輝煌的舍利塔與精細的鑲嵌工藝，展示了曼谷王朝最高的藝術造詣。</p>
+        </div>
+        <a href="index.html#wat-phra-kaew" class="img-link">
+            <div class="pic-view" style="background-image: url('https://cdn.tourradar.com/s3/serp/1500x800/4600_t8afNwa2.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="chiang-rai">
+        <div class="desc-box">
+            <h3>清萊藝術：白廟 (Wat Rong Khun)</h3>
+            <p>由當代藝術家 Chalermchai Kositpipat 打造，這座純白色的寺廟象徵著佛陀的純潔。整座建築鑲嵌著細小的鏡面碎片，在陽光下閃耀著神聖的光芒。 其設計結合了傳統佛教美學與現代超現實主義元素，是北泰國最具爭議且最受歡迎的當代藝術景點。</p>
+        </div>
+        <a href="index.html#chiang-rai" class="img-link">
+            <div class="pic-view" style="background-image: url('https://asianinspirations.com.au/wp-content/uploads/2020/01/663-03ChiangRai.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="island-paradise">
+        <div class="desc-box">
+            <h3>海島天堂</h3>
+            <p>泰國南部的安達曼海域擁有世界級的潛水點與白沙灘。從皮皮島的瑪雅灣到斯米蘭群島，清澈見底的水質與豐富的海洋生態令人屏息。 這裡不僅是放鬆身心的聖地，更是各種水上運動愛好者的天堂，每一張快照都像是明信片般完美。</p>
+        </div>
+        <a href="index.html#island-paradise" class="img-link">
+            <div class="pic-view" style="background-image: url('https://ik.imagekit.io/travalot/development/resources/attachments/2025/6/23/f6fbaa20-679d-11f0-9d53-b3954422cf0f.jpg?tr=f-webp:q-85');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="urban-pulse">
+        <div class="desc-box">
+            <h3>都會脈動</h3>
+            <p>曼谷是一座永不眠的城市。從熱鬧的 Siam 商圈到昭披耶河畔的高級飯店，現代摩天大樓與傳統屋頂在這裡並存。 夜晚的曼谷擁有迷人的天際線，各大高空酒吧提供了俯瞰城市燈火流光的最佳視角，展現了泰國充滿活力的現代化面貌。</p>
+        </div>
+        <a href="index.html#urban-pulse" class="img-link">
+            <div class="pic-view" style="background-image: url('https://asiaexchange.org/wp-content/uploads/2023/03/Studying-Abroad-in-Spring-or-Fall-Semester_-Part-2-Thailand-5.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="tom-yum">
+        <div class="desc-box">
+            <h3>冬蔭功 (Tom Yum Goong)</h3>
+            <p>這是泰國美食的靈魂。這道湯品以鮮蝦、香茅、南薑與檸檬葉為基底，完美平衡了酸、辣、鹹、甜四種味覺。 每一口都能感受到強烈的香料層次，是來到泰國絕對不能錯過的國寶級料理。</p>
+        </div>
+        <a href="index.html#tom-yum" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.foodnext.net/dispPageBox/getFile/GetImg.aspx?FileLocation=%2FPJ-FOODNEXT%2FFiles%2F&FileName=photo-74978-i.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="pad-thai">
+        <div class="desc-box">
+            <h3>泰式炒河粉 (Pad Thai)</h3>
+            <p>作為泰國最知名的街頭小吃，Pad Thai 展現了食材的多元融合。它將河粉、豆腐、蝦仁與花生碎一同大火翻炒。 最後淋上鮮榨檸檬汁，微甜微酸的口感讓它成為全球遊客抵泰後的第一首選美食。</p>
+        </div>
+        <a href="index.html#pad-thai" class="img-link">
+            <div class="pic-view" style="background-image: url('https://www.eatingwell.com/thmb/X8n8s2xKfmMf9qUJj1WtCatbacc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-shrimp-pad-thai-step-05-1190-87e6eec4f9ec48f288489d7f06ea01fc.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="som-tum">
+        <div class="desc-box">
+            <h3>青木瓜沙拉 (Som Tum)</h3>
+            <p>源自泰國東北部（伊善地區），這是一道充滿活力的涼拌菜。將生青木瓜絲、番茄、長豆與特製魚露、辣椒、棕櫚糖在木臼中搗碎融合。 口感清脆爽口，火辣帶勁，是炎熱氣候下最開胃的最佳選擇。</p>
+        </div>
+        <a href="index.html#som-tum" class="img-link">
+            <div class="pic-view" style="background-image: url('https://thumbs.dreamstime.com/b/thai-food-som-tum-spicy-papaya-salad-steamed-pork-sausage-406479949.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="green-curry">
+        <div class="desc-box">
+            <h3>泰式綠咖哩 (Green Curry)</h3>
+            <p>相較於紅咖哩，綠咖哩因為使用了新鮮青辣椒與大量的椰奶，呈現出柔和的翠綠色與濃郁的奶香味。 搭配泰國茄子與軟嫩的雞肉，拌入泰國香米中，香氣在口中久久不散，是泰式優雅料理的代表。</p>
+        </div>
+        <a href="index.html#green-curry" class="img-link">
+            <div class="pic-view" style="background-image: url('https://s359.thaicdn.net//pagebuilder/9f824e56-6919-46c9-910b-d962b508260e.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="tuk-tuk">
+        <div class="desc-box">
+            <h3>嘟嘟車 (Tuk Tuk)</h3>
+            <p>三輪摩托車「嘟嘟車」是泰國交通的最強文化符號。它色彩鮮艷、引擎聲獨特，是短途穿梭巷弄的趣味選擇。 搭乘嘟嘟車不僅是移動，更是一場能夠感受曼谷氣息與溫度的流動體驗。</p>
+        </div>
+        <a href="index.html#tuk-tuk" class="img-link">
+            <div class="pic-view" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/59/Tuktukpktalad05b.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="bts">
+        <div class="desc-box">
+            <h3>曼谷空鐵 (BTS)</h3>
+            <p>BTS 輕軌系統是現代曼谷的動脈。它在高樓大廈間穿梭，不僅能避開地面惡名昭彰的塞車，還能俯瞰城市的現代天際線。 它是前往 Siam 商圈、Sukhumvit 地區最有效率且最舒適的選擇。</p>
+        </div>
+        <a href="index.html#bts" class="img-link">
+            <div class="pic-view" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c9/Bangkok_BTS_01.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="mrt">
+        <div class="desc-box">
+            <h3>曼谷地鐵 (MRT)</h3>
+            <p>MRT 藍線與紫線覆蓋了曼谷的老城區與新興住宅區。車站內環境涼爽整潔，是串聯華藍蓬火車站與各大夜市的重要網路。 它提供了與 BTS 互補的便捷性，讓旅客能深入探索城市的每一個角落。</p>
+        </div>
+        <a href="index.html#mrt" class="img-link">
+            <div class="pic-view" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Hua_Lampong_MRT_station.jpg/1280px-Hua_Lampong_MRT_station.jpg');"></div>
+        </a>
+    </div>
+    
+    <div class="desc-row" id="moto-taxi">
+        <div class="desc-box">
+            <h3>機車計程車 (Motorbike Taxi)</h3>
+            <p>穿著橙色背心的騎士是泰國街頭最常見的身影。在嚴重塞車的尖峰時段，機車計程車是唯一能讓你準時抵達目的地的利器。 雖然刺激，但這絕對是泰國當地人最依賴的日常交通方式之一，體驗一場極速穿越車陣的驚險感。</p>
+        </div>
+        <a href="index.html#moto-taxi" class="img-link">
+            <div class="pic-view" style="background-image: url('https://blog.takemetour.com/wp-content/uploads/2018/10/Your-phone-is-your-friend-when-it-comes-to-riding-a-Bangkok-motorbike-taxi-Dont-use-it-while-riding-though....jpg');"></div>
+        </a>
+    </div>
+    
+    </div>
+    <footer>
+        <p>© 2026 Amazing Thailand Insight. | 永續旅遊，從你我開始。</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰國觀光：頁面 2</title>
+    <script>
+        const apiKey = ""; 
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Re-using existing library."):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: apiKey,
+            v: "weekly",
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --accent: #ffd700;
+            --success: #2e8b57;
+            --danger: #b22222;
+            --bg-light: #fdfdfd;
+            --text-dark: #2c3e50;
+            --bg-accent: rgba(15, 76, 129, 0.04);
+            --bg-warm: rgba(255, 215, 0, 0.02);
+            --thai-pattern: url('https://t4.ftcdn.net/jpg/04/73/47/65/360_F_473476520_jfL74mcJmayUhrwfgYxZ0j27BDaqr646.jpg');
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .hero {
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('https://res.cloudinary.com/cdn-connections/image/upload/c_limit,w_3840/f_auto/q_auto:best/v1746008069/Destinations/Asia/Thailand/TOURS/Grand%20Tour%20Thailand/Header_Thailand_Winter?_a=BAVAZGBy0');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+        }
+
+        .page-link-banner {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .page-link-banner a {
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-item {
+            margin: 0 25px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 80%;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary);
+        }
+
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.8s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-section {
+            padding: 60px 20px 80px;
+            text-align: center;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), var(--thai-pattern);
+            background-size: 600px;
+        }
+
+        .gallery-content-wrapper { max-width: 1200px; margin: 0 auto; }
+
+        .section-description {
+            max-width: 800px;
+            margin: 20px auto 40px;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            height: 350px;
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        .gallery-item .overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white; padding: 25px; opacity: 0; transition: 0.3s; text-align: left;
+        }
+        .gallery-item:hover .overlay { opacity: 1; }
+        
+        .tips-box {
+            background: #fff; border-left: 8px solid var(--accent);
+            padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 1200px; margin: 50px auto 0;
+        }
+
+        .analysis-wrapper { padding: 80px 0; background-attachment: fixed; }
+        .main-container {
+            max-width: 1100px; width: 92%; margin: 0 auto;
+            background: white; padding: 40px; border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .mode-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .mode-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 2px solid #eee;
+            background: white;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .mode-btn.positive { color: var(--success); }
+        .mode-btn.positive.active { background: var(--success); color: white; border-color: var(--success); }
+        .mode-btn.negative { color: var(--danger); }
+        .mode-btn.negative.active { background: var(--danger); color: white; border-color: var(--danger); }
+
+        .info-card {
+            background: var(--bg-accent);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            transition: all 0.5s ease;
+        }
+        .info-card h3 { margin-top: 0; color: var(--primary); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        .info-card p { line-height: 1.7; color: #444; }
+
+        @media (max-width: 768px) {
+            .info-card { grid-template-columns: 1fr; }
+        }
+
+        footer { padding: 60px 0; background: var(--primary); color: white; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-item { margin: 0 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-link-banner">
+        目前位於：頁面 2 | 前往 <a href="index.html">頁面 1</a>
+    </div>
+
+    <div class="hero">
+        <h1>Amazing Thailand</h1>
+        <p>探索輝煌文化與自然奇蹟，同時承諾永續未來</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-item active" onclick="showPage('page1', this)">泰國經典節慶</div>
+        <div class="nav-item" onclick="showPage('page2', this)">推薦泰國電影</div>
+        <div class="nav-item" onclick="showPage('page3', this)">泰國的季節</div>
+    </nav>
+
+    <!-- Page 1: Thailand Iconic Festivities -->
+    <div id="page1" class="page active">
+        <section class="gallery-section">
+            <div class="gallery-content-wrapper">
+                <h2>泰國經典節慶</h2>
+                <p class="section-description">
+                    泰國的節慶是體現其深厚文化與熱情生命力的最佳視窗。每一場慶典都蘊含著對大自然的敬畏、對神靈的感謝以及對未來的祈願。
+                </p>
+                <div class="gallery-grid">
+                    <a href="description2.html#songkran" class="gallery-item" id="songkran" style="background-image: url('https://sawasdee.thaiairways.com/wp-content/uploads/2025/04/04TH7-1-1400x775.jpg');">
+                        <div class="overlay"><h4>潑水節 (Songkran)</h4><p>泰國新年，用水洗淨過去一年的壞運</p></div>
+                    </a>
+                    <a href="description2.html#yipeng" class="gallery-item" id="yipeng" style="background-image: url('https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2025/11/10/1762761108872_le-hoi-den-troi-yi-peng-chiang-mai-1.png');">
+                        <div class="overlay"><h4>萬人天燈 (Yi Peng)</h4><p>在泰北清邁，讓祈禱隨燈火升入夜空</p></div>
+                    </a>
+                    <a href="description2.html#loykrathong" class="gallery-item" id="loykrathong" style="background-image: url('https://www.dhammathai.org/culture/pic/kratongsai_tak.jpg');">
+                        <div class="overlay"><h4>水燈節 (Loy Krathong)</h4><p>向水神致意，讓煩惱隨水燈漂向遠方</p></div>
+                    </a>
+                    <a href="description2.html#phitakhon" class="gallery-item" id="phitakhon" style="background-image: url('https://img.natgeomedia.com/userfiles/sm/sm1920_images_A1/3359/105105694925.jpg');">
+                        <div class="overlay"><h4>鬼臉節 (Phi Ta Khon)</h4><p>繽紛的面具與舞蹈，祈求風調雨順</p></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="analysis-wrapper">
+            <div class="main-container">
+                <h2 style="text-align:center;">節日期間的注意事項</h2>
+                
+                <div class="mode-switcher">
+                    <button class="mode-btn positive active" onclick="toggleInsight('positive')">Dos ✅</button>
+                    <button class="mode-btn negative" onclick="toggleInsight('negative')">Don'ts ❌</button>
+                </div>
+
+                <div id="insight-card" class="info-card">
+                    <div class="insight-item">
+                        <h3 id="insight-title-1">服裝得體</h3>
+                        <p id="insight-desc-1">參與宗教性質強烈的慶典（如水燈節或前往寺廟）時，請穿著遮蓋肩部與膝蓋的服裝，以展現對當地傳統與信仰的尊重。</p>
+                    </div>
+                    <div class="insight-item">
+                        <h3 id="insight-title-2">環保參與</h3>
+                        <p id="insight-desc-2">優先選擇由麵包或香蕉葉等天然材質製成的水燈。在參與慶典時，主動帶走隨身垃圾，協助維護珍貴的觀光資源。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Recommended Thai Films -->
+    <div id="page2" class="page active">
+        <section class="gallery-section">
+            <div class="gallery-content-wrapper">
+                <h2>光影藝術：推薦泰國電影</h2>
+                <p>探索泰國電影的獨特敘事，從震撼全球的懸疑片到觸動人心的青春經典</p>
+                <div class="gallery-grid">
+                    <a href="description2.html#BG" class="gallery-item" id="BG" style="background-image: url('https://pimg.1px.tw/pink03049/1501599629-933097405.jpg?v=1501622061');">
+                        <div class="overlay"><h4>模犯生 (Bad Genius)</h4><p>天才學生的跨國考場作弊計畫，節奏緊湊驚心動魄。</p></div>
+                    </a>
+                    <a href="description2.html#SL" class="gallery-item" id="SL" style="background-image: url('https://apl-hamivideo.cdn.hinet.net/HamiVideo/getHamiVideoImg.php?imageId=sourceImages@2024100234_o_20220713110951.jpg');">
+                        <div class="overlay"><h4>初戀那件小事</h4><p>全亞洲最知名的青春愛情片，喚起每個人的青澀回憶。</p></div>
+                    </a>
+                    <a href="description2.html#ST" class="gallery-item" id="ST" style="background-image: url('https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20210208011.jpg');">
+                        <div class="overlay"><h4>鬼影 (Shutter)</h4><p>泰國恐怖片的極致代表，關於背後不為人知的罪惡真相。</p></div>
+                    </a>
+                    <a href="description2.html#PM" class="gallery-item" id="PM" style="background-image: url('https://char.tw/wp-content/uploads/2017/08/1503031340-890152a6a2a17c1a95ea434153fa2a79.jpg');">
+                        <div class="overlay"><h4>淒厲人妻 (Pee Mak)</h4><p>融合恐怖、喜劇與真摯愛情的傳奇故事，泰國影史票房冠軍。</p></div>
+                    </a>
+                </div>
+                <div class="tips-box" style="text-align: left;">
+                    <h3>💡 泰國影視文化觀察</h3>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li><b>文化融合：</b>泰國電影擅長將在地信仰、傳統與現代流行文化完美結合。</li>
+                        <li><b>創意剪輯：</b>從廣告到電影，泰國式的幽默與節奏感已成為國際標誌。</li>
+                        <li><b>多元類型：</b>除了著名的恐怖片，泰國的BL劇與社會寫實電影也在國際影展屢獲大獎。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page 3: Seasons of Thailand -->
+    <div id="page3" class="page active">
+        <section class="gallery-section">
+            <div class="gallery-content-wrapper">
+                <h2>泰國的季節：三季之美</h2>
+                <p>了解泰國三種獨特的季節氣候，幫助您規劃一場最完美的旅程</p>
+                <div class="gallery-grid">
+                    <!-- Updated section for Cool Season with user-provided image -->
+                    <a href="description2.html#C" class="gallery-item" id="C" style="background-image: url('https://sci.pcru.ac.th/conference/resources/assets-frontend/img/carousel-1.jpg');">
+                        <div class="overlay">
+                            <h4>涼季 (11月 - 2月)</h4>
+                            <p>氣候乾爽宜人，是泰國最受歡迎的旅遊旺季，適合所有戶外活動。</p>
+                        </div>
+                    </a>
+                    <!-- Hot Season with Similan Islands image -->
+                    <a href="description2.html#H" class="gallery-item" id="H" style="background-image: url('https://www.drivehub.com/blog/wp-content/uploads/2026/04/20-TB-1024x576.jpg');">
+                        <div class="overlay">
+                            <h4>熱季 (3月 - 5月)</h4>
+                            <p>陽光強烈且氣溫最高，是海灘愛好者的天堂，也是歡慶潑水節的時節。</p>
+                        </div>
+                    </a>
+                    <!-- Rainy Season with Hin Sam Wan image -->
+                    <a href="description2.html#R" class="gallery-item" id="R" style="background-image: url('https://www.drivehub.com/blog/wp-content/uploads/2023/07/07-Hin-Sam-Whales-1024x576.jpg');">
+                        <div class="overlay">
+                            <h4>雨季 (6月 - 10月)</h4>
+                            <p>自然景觀最為翠綠，降雨通常為午後陣雨，飯店與機票價格最為優惠。</p>
+                        </div>
+                    </a>
+                    <a href="description2.html#N" class="gallery-item" id="N" style="background-image: url('https://www.drivehub.com/blog/wp-content/uploads/2022/09/Blog-image-02.jpg');">
+                        <div class="overlay">
+                            <h4>泰北涼秋</h4>
+                            <p>山區如清邁與清萊在涼季時清晨氣溫較低，是觀看雲海的絕佳機會。</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="tips-box" style="text-align: left;">
+                    <h3>☀️ 泰國旅遊季節穿著建議</h3>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li><b>通用服裝：</b>以輕便、吸汗的棉麻材質為主。熱季時必備防曬衣物。</li>
+                        <li><b>雨季必備：</b>隨身攜帶折疊傘或輕便雨衣。鞋款建議選擇具備防水或易乾功能的款式。</li>
+                        <li><b>室內與山區：</b>泰國商場空調極強，涼季泰北溫差大，建議攜帶薄長袖或小外套。</li>
+                        <li><b>文化尊重：</b>不論什麼季節，造訪寺廟時請務必準備遮蓋肩膀與膝蓋的衣物。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Amazing Thailand Insight. | 永續旅遊，從你我開始。</p>
+    </footer>
+
+    <script>
+        const insights = {
+            positive: [
+                { title: "服裝得體", desc: "參與宗教性質強烈的慶典（如水燈節 or 前往寺廟）時，請穿著遮蓋肩部與膝蓋的服裝，以展現對當地傳統與信仰的尊重。" },
+                { title: "環保參與", desc: "優先選擇由麵包或香蕉葉等天然材質製成的水燈。在參與慶典時，主動帶走隨身垃圾，協助維護珍貴的觀光資源。" }
+            ],
+            negative: [
+                { title: "切勿潑水過猛", desc: "潑水節期間，請避免向僧侶、孕婦 or 嬰幼兒潑水。也請勿使用強力水槍或髒水，確保安全且友善的歡慶氣氛。" },
+                { title: "禁忌觸摸", desc: "慶典人潮擁績時，仍須注意避免觸摸他人頭部（泰國文化中頭部為神聖部位），且嚴禁隨意觸碰節慶中具宗教意義的裝飾與神像。" }
+            ]
+        };
+
+        function toggleInsight(mode) {
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.mode-btn.${mode}`).classList.add('active');
+
+            const card = document.getElementById('insight-card');
+            card.style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('insight-title-1').innerText = insights[mode][0].title;
+                document.getElementById('insight-desc-1').innerText = insights[mode][0].desc;
+                document.getElementById('insight-title-2').innerText = insights[mode][1].title;
+                document.getElementById('insight-desc-2').innerText = insights[mode][1].desc;
+                
+                card.style.background = mode === 'positive' ? 'rgba(46, 139, 87, 0.05)' : 'rgba(178, 34, 34, 0.05)';
+                card.style.opacity = '1';
+            }, 300);
+        }
+
+        function showPage(pageId, element) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            element.classList.add('active');
+            
+            const navbar = document.querySelector('.navbar');
+            window.scrollTo({ top: navbar.offsetTop, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
