@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰國觀光：頁面 1</title>
+    <!-- Google Maps API (Retained for structure consistency but unused in view) -->
+    <script>
+        const apiKey = ""; 
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Re-using existing library."):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: apiKey,
+            v: "weekly",
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --accent: #ffd700;
+            --success: #2e8b57;
+            --danger: #b22222;
+            --bg-light: #fdfdfd;
+            --text-dark: #2c3e50;
+            --bg-accent: rgba(15, 76, 129, 0.04);
+            --bg-warm: rgba(255, 215, 0, 0.02);
+            --thai-pattern: url('https://t4.ftcdn.net/jpg/04/73/47/65/360_F_473476520_jfL74mcJmayUhrwfgYxZ0j27BDaqr646.jpg');
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('https://res.cloudinary.com/cdn-connections/image/upload/c_limit,w_3840/f_auto/q_auto:best/v1746008069/Destinations/Asia/Thailand/TOURS/Grand%20Tour%20Thailand/Header_Thailand_Winter?_a=BAVAZGBy0');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+        }
+
+        /* Link Section for Switching Files */
+        .page-link-banner {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .page-link-banner a {
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-item {
+            margin: 0 25px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 80%;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary);
+        }
+
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.8s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gallery Sections */
+        .gallery-section {
+            padding: 60px 20px 80px;
+            text-align: center;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), var(--thai-pattern);
+            background-size: 600px;
+        }
+
+        .gallery-content-wrapper { max-width: 1200px; margin: 0 auto; }
+
+        .section-description {
+            max-width: 800px;
+            margin: 20px auto 40px;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            height: 350px;
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        .gallery-item .overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white; padding: 25px; opacity: 0; transition: 0.3s; text-align: left;
+        }
+        .gallery-item:hover .overlay { opacity: 1; }
+
+        /* Tips Box */
+        .tips-box {
+            background: #fff; border-left: 8px solid var(--accent);
+            padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 1200px; margin: 50px auto 0;
+        }
+
+        /* Analysis Block styles */
+        .analysis-wrapper { padding: 80px 0; background-attachment: fixed; }
+        .main-container {
+            max-width: 1100px; width: 92%; margin: 0 auto;
+            background: white; padding: 40px; border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        /* Mode Switcher Styles */
+        .mode-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .mode-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 2px solid #eee;
+            background: white;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .mode-btn.positive { color: var(--success); }
+        .mode-btn.positive.active { background: var(--success); color: white; border-color: var(--success); }
+        .mode-btn.negative { color: var(--danger); }
+        .mode-btn.negative.active { background: var(--danger); color: white; border-color: var(--danger); }
+
+        /* Info Card Styles */
+        .info-card {
+            background: var(--bg-accent);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            transition: all 0.5s ease;
+        }
+        .info-card h3 { margin-top: 0; color: var(--primary); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        .info-card p { line-height: 1.7; color: #444; }
+
+        @media (max-width: 768px) {
+            .info-card { grid-template-columns: 1fr; }
+        }
+
+        footer { padding: 60px 0; background: var(--primary); color: white; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-item { margin: 0 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-link-banner">
+        目前位於：頁面 1 | 前往 <a href="page2.html">頁面 2</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Amazing Thailand</h1>
+        <p>探索輝煌文化與自然奇蹟，同時承諾永續未來</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-item active" onclick="showPage('page1', this)">旅行資訊</div>
+        <div class="nav-item" onclick="showPage('page2', this)">美食與文化</div>
+        <div class="nav-item" onclick="showPage('page3', this)">交通指南</div>
+    </nav>
+
+    <!-- Page 1: Travel Information -->
+    <div id="page1" class="page active">
+        <section class="gallery-section">
+            <div class="gallery-content-wrapper">
+                <h2>絕美泰國</h2>
+                <p class="section-description">
+                    泰國，這片被譽為「微笑之邦」的土地，完美融合了古老傳統與現代動感。從曼谷金碧輝煌的佛寺建築到清邁寧靜翠綠的山間古城，再到南方安達曼海域那如寶石般閃耀的清澈海島，泰國以其多樣化的自然景觀與深厚的佛教文化底蘊，成為全球旅人心中不變的嚮往。在這裡，您不僅能見證歷史的宏偉，更能感受到泰國人民那份發自內心的熱情與款待。
+                </p>
+                <div class="gallery-grid">
+                    <a href="description1.html#wat-phra-kaew" class="gallery-item" id="wat-phra-kaew" style="background-image: url('https://cdn.tourradar.com/s3/serp/1500x800/4600_t8afNwa2.jpg');">
+                        <div class="overlay"><h4>曼谷玉佛寺</h4><p>泰國最神聖的象徵</p></div>
+                    </a>
+                    <a href="description1.html#chiang-rai" class="gallery-item" id="chiang-rai" style="background-image: url('https://asianinspirations.com.au/wp-content/uploads/2020/01/663-03ChiangRai.jpg');">
+                        <div class="overlay"><h4>清萊藝術</h4><p>北國獨有的雅致文化</p></div>
+                    </a>
+                    <a href="description1.html#island-paradise" class="gallery-item" id="island-paradise" style="background-image: url('https://ik.imagekit.io/travalot/development/resources/attachments/2025/6/23/f6fbaa20-679d-11f0-9d53-b3954422cf0f.jpg?tr=f-webp:q-85');">
+                        <div class="overlay"><h4>海島天堂</h4><p>清澈見底的安達曼海景緻</p></div>
+                    </a>
+                    <a href="description1.html#urban-pulse" class="gallery-item" id="urban-pulse" style="background-image: url('https://asiaexchange.org/wp-content/uploads/2023/03/Studying-Abroad-in-Spring-or-Fall-Semester_-Part-2-Thailand-5.jpg');">
+                        <div class="overlay"><h4>都會脈動</h4><p>曼谷的天際線與無限活力</p></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="analysis-wrapper">
+            <div class="main-container">
+                <h2 style="text-align:center;">深度洞察：觀光發展的兩面性</h2>
+                
+                <div class="mode-switcher">
+                    <button class="mode-btn positive active" onclick="toggleInsight('positive')">積極繁榮 📈</button>
+                    <button class="mode-btn negative" onclick="toggleInsight('negative')">面臨挑戰 📉</button>
+                </div>
+
+                <div id="insight-card" class="info-card">
+                    <div class="insight-item">
+                        <h3 id="insight-title-1">經濟支柱</h3>
+                        <p id="insight-desc-1">觀光業貢獻了泰國約 12-20% 的 GDP，為數百萬泰國民眾創造了就業機會，從城市飯店到鄉間民宿，帶動了整體服務業的蓬勃發展。</p>
+                    </div>
+                    <div class="insight-item">
+                        <h3 id="insight-title-2">文化傳承</h3>
+                        <p id="insight-desc-2">國際遊客的熱情促進了泰國傳統手工藝、古典舞蹈與泰拳文化的復興。透過觀光收益，許多歷史遺跡得以獲得更佳的修繕與保護經費。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Food & Culture -->
+    <div id="page2" class="page active">
+        <section class="gallery-section">
+            <div class="gallery-content-wrapper">
+                <h2>舌尖上的泰國：美食與文化</h2>
+                <p>探索泰國最引以為傲的飲食文化，體驗酸、辣、鹹、甜與香料的完美平衡</p>
+                <div class="gallery-grid">
+                    <a href="description1.html#tom-yum" class="gallery-item" id="tom-yum" style="background-image: url('https://www.foodnext.net/dispPageBox/getFile/GetImg.aspx?FileLocation=%2FPJ-FOODNEXT%2FFiles%2F&FileName=photo-74978-i.jpg');">
+                        <div class="overlay"><h4>冬蔭功 (Tom Yum Goong)</h4><p>泰國靈魂蝦湯，結合香茅與辣椒。</p></div>
+                    </a>
+                    <a href="description1.html#pad-thai" class="gallery-item" id="pad-thai" style="background-image: url('https://www.eatingwell.com/thmb/X8n8s2xKfmMf9qUJj1WtCatbacc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-shrimp-pad-thai-step-05-1190-87e6eec4f9ec48f288489d7f06ea01fc.jpg');">
+                        <div class="overlay"><h4>泰式炒河粉 (Pad Thai)</h4><p>聞名國際的街頭美食。</p></div>
+                    </a>
+                    <a href="description1.html#som-tum" class="gallery-item" id="som-tum" style="background-image: url('https://thumbs.dreamstime.com/b/thai-food-som-tum-spicy-papaya-salad-steamed-pork-sausage-406479949.jpg');">
+                        <div class="overlay"><h4>青木瓜沙拉 (Som Tum)</h4><p>來自東北的酸辣脆爽驚喜。</p></div>
+                    </a>
+                    <a href="description1.html#green-curry" class="gallery-item" id="green-curry" style="background-image: url('https://s359.thaicdn.net//pagebuilder/9f824e56-6919-46c9-910b-d962b508260e.jpg');">
+                        <div class="overlay"><h4>綠咖哩 (Green Curry)</h4><p>濃郁椰奶香氣與獨門香料調配。</p></div>
+                    </a>
+                </div>
+                <div class="tips-box" style="text-align: left;">
+                    <h3>💡 泰國旅遊小撇步</h3>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li><b>尊重信仰：</b>進入寺廟請穿著莊重，並脫鞋以示敬意。</li>
+                        <li><b>問候禮儀：</b>合十禮 (Wai) 是最誠摯的打招呼方式。</li>
+                        <li><b>飲食安全：</b>品嚐街頭美食時，優先選擇烹煮過的熱食。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page 3: Transportation -->
+    <div id="page3" class="page active">
+        <section class="gallery-section">
+            <div class="gallery-content-wrapper">
+                <h2>漫遊泰國：便捷與多元的交通</h2>
+                <p>從充滿懷舊風情的嘟嘟車到現代化的軌道系統，體驗穿梭在城市與鄉間的獨特律動</p>
+                <div class="gallery-grid">
+                    <a href="description1.html#tuk-tuk" class="gallery-item" id="tuk-tuk" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/59/Tuktukpktalad05b.jpg');">
+                        <div class="overlay">
+                            <h4>嘟嘟車 (Tuk Tuk)</h4>
+                            <p>泰國街頭的標誌性三輪車，提供短途且充滿特色的移動體驗。</p>
+                        </div>
+                    </a>
+                    <a href="description1.html#bts" class="gallery-item" id="bts" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c9/Bangkok_BTS_01.jpg');">
+                        <div class="overlay">
+                            <h4>曼谷空鐵 (BTS)</h4>
+                            <p>穿梭於高樓林立的曼谷市中心，避開地面交通擁塞的最佳選擇。</p>
+                        </div>
+                    </a>
+                    <a href="description1.html#mrt" class="gallery-item" id="mrt" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Hua_Lampong_MRT_station.jpg/1280px-Hua_Lampong_MRT_station.jpg');">
+                        <div class="overlay">
+                            <h4>曼谷地鐵 (MRT)</h4>
+                            <p>現代化的地下鐵路網，將曼谷各個重要商業區與生活區緊密連結。</p>
+                        </div>
+                    </a>
+                    <a href="description1.html#moto-taxi" class="gallery-item" id="moto-taxi" style="background-image: url('https://blog.takemetour.com/wp-content/uploads/2018/10/Your-phone-is-your-friend-when-it-comes-to-riding-a-Bangkok-motorbike-taxi-Dont-use-it-while-riding-though....jpg');">
+                        <div class="overlay">
+                            <h4>機車計程車</h4>
+                            <p>穿著鮮艷背心的騎士，是泰國大城市中鑽過塞車陣的最快方案。</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="tips-box" style="text-align: left;">
+                    <h3>🚕 泰國交通移動錦囊</h3>
+                    <ul style="line-height: 2; padding-left: 20px;">
+                        <li><b>價格協議：</b>搭乘嘟嘟車前請務必先議價；搭乘計程車則要求「By Meter」。</li>
+                        <li><b>應用程式：</b>下載 Grab 或 Bolt 等叫車 APP，可獲得透明的報價與便利的服務。</li>
+                        <li><b>尖峰時段：</b>曼谷上班時間交通極其擁塞，強烈建議搭配使用捷運系統（BTS/MRT）。</li>
+                        <li><b>安全第一：</b>搭乘機車計程車時，請務必戴上騎士提供的安全帽。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Amazing Thailand Insight. | 永續旅遊，從你我開始。</p>
+    </footer>
+
+    <script>
+        // Insight Toggler Logic
+        const insights = {
+            positive: [
+                { title: "經濟支柱", desc: "觀光業貢獻了泰國約 12-20% 的 GDP，為數百萬泰國民眾創造了就業機會，帶動服務業蓬勃發展。" },
+                { title: "文化傳承", desc: "遊客的關注促進了泰國手工藝與歷史遺跡的保護經費，讓古老傳統得以在現代社會中發揚光大。" }
+            ],
+            negative: [
+                { title: "環境負荷", desc: "過度旅遊導致部分海島生態受損（如瑪雅灣），垃圾處理與水資源分配在熱門地區也面臨極大壓力。" },
+                { title: "在地衝擊", desc: "熱門景區的物價上漲與環境變遷可能影響當地居民生活品質，觀光發展與居民權益的平衡仍是重要課題。" }
+            ]
+        };
+
+        function toggleInsight(mode) {
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.mode-btn.${mode}`).classList.add('active');
+
+            const card = document.getElementById('insight-card');
+            card.style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('insight-title-1').innerText = insights[mode][0].title;
+                document.getElementById('insight-desc-1').innerText = insights[mode][0].desc;
+                document.getElementById('insight-title-2').innerText = insights[mode][1].title;
+                document.getElementById('insight-desc-2').innerText = insights[mode][1].desc;
+                
+                card.style.background = mode === 'positive' ? 'rgba(46, 139, 87, 0.05)' : 'rgba(178, 34, 34, 0.05)';
+                card.style.opacity = '1';
+            }, 300);
+        }
+
+        function showPage(pageId, element) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            element.classList.add('active');
+            
+            const navbar = document.querySelector('.navbar');
+            window.scrollTo({ top: navbar.offsetTop, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
